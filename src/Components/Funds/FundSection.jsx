@@ -1,7 +1,7 @@
 import NavbarContent from "../NavbarContent";
 import Wishlist from "../Wishlist/Wishlist";
 import { useEffect, useState } from "react";
-export default function Funds() {  
+export default function FundSection() {  
     const [AddFunds, setAddFunds] = useState(false);
     const [WithdrawFunds, setWithdrawFunds] = useState(false);
     const [Funds, setFunds] = useState(0);
