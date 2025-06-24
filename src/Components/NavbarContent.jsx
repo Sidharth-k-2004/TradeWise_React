@@ -25,22 +25,22 @@ export default function NavbarContent() {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav ms-auto mb-2  mb-lg-0">
               <li className="nav-item me-5 fs-4 hover-pop">
-                <a className="nav-link active text-muted" href="/display">
+                <a className="nav-link active text-muted" onClick={() => navigate("/display")}>
                   <i className="bi bi-speedometer2 me-2"></i>Dashboard
                 </a>
               </li>
               <li className="nav-item me-5 fs-4 hover-pop">
-                <a className="nav-link" href="/holdings">
+                <a className="nav-link" onClick={() => navigate("/holdings")}>
                   <i className="bi bi-bar-chart-fill me-2"></i>Holdings
                 </a>
               </li>
               <li className="nav-item me-5 fs-4 hover-pop">
-                <a className="nav-link" href="/funds">
+                <a className="nav-link" onClick={() => navigate("/funds")}>
                   <i className="bi bi-wallet2 me-2"></i>Funds
                 </a>
               </li>
               <li className="nav-item me-5 fs-4 hover-pop">
-                <a className="nav-link" href="/wishlist">
+                <a className="nav-link" onClick={() => navigate("/wishlist")}>
                   <i className="bi bi-heart me-2"></i>Wishlist
                 </a>
               </li>
