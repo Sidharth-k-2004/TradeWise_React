@@ -190,7 +190,7 @@ export default function Holding() {
               </div>
             ) : (
               <>
-                <div style={{ width: "95%", height: 300 }} className="mx-5 my-4">
+                <div style={{ width: "95%", height: '40%' }} className="mx-5 my-5">
                   <h4>Total Investment vs. Current Value</h4>
                   <ResponsiveContainer width="100%" height="100%">
                     <BarChart
@@ -208,7 +208,7 @@ export default function Holding() {
                   </ResponsiveContainer>
                 </div>
 
-                <div style={{ width: "95%", height: "60vh", overflowY: "auto" }}>
+                <div className="my-5" style={{ width: "95%", height: "60vh", overflowY: "auto" }}>
                   <table className="table table-success table-striped table-hover table-bordered table-responsive mx-5">
                     <thead>
                       <tr>
