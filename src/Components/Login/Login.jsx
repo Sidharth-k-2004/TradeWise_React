@@ -69,7 +69,7 @@ export default function Login() {
             />
           </div >
           <button className="btn btn-primary w-100 my-5">Login</button>
-          <p className="fs-4" style={{color:'black'}}>
+          <p className="fs-5" style={{color:'black'}}>
             Dont have an Account? <Link to="/SignUp">Sign Up</Link>
           </p>
         </form>

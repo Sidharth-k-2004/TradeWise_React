@@ -69,7 +69,7 @@ export default function SignUp() {
           </div>
           <button className="btn btn-primary w-100 my-5">Sign Up</button>
 
-          <p className="fs-2 " style={{color:'black'}}>
+          <p className="fs-5 " style={{color:'black'}}>
             Already have an Account? <Link to="/login">Login</Link>
           </p>
         </form>
