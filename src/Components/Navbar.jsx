@@ -1,4 +1,6 @@
+import { useNavigate } from "react-router-dom";
 export default function Navbar() {
+     const navigate = useNavigate();
     return (
         <nav className="navbar navbar-expand-lg sticky-top border-5 shadow-lg" style={{backgroundColor:"#ECFEFF"}} >
         <div className="container-fluid">
