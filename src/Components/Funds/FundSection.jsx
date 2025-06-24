@@ -2,6 +2,7 @@ import NavbarContent from "../NavbarContent";
 import Wishlist from "../Wishlist/Wishlist";
 import { useEffect, useState } from "react";
 export default function FundSection() {  
+    const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
     const [AddFunds, setAddFunds] = useState(false);
     const [WithdrawFunds, setWithdrawFunds] = useState(false);
     const [Funds, setFunds] = useState(0);
@@ -9,7 +10,7 @@ export default function FundSection() {
         const userId = localStorage.getItem("userId");
         console.log("User ID from storage:", userId);
         if (userId) {
-            fetch(`http://localhost:8080/myFunds`, {
+            fetch(`${BACKEND_URL}/myFunds`, {
                 method: "Post",
                 body: JSON.stringify({ userId: userId }),
                 headers: {
@@ -39,7 +40,7 @@ export default function FundSection() {
     console.log("Transaction type:", type);
     console.log("Transaction amount:", amount);
 
-    fetch("http://localhost:8080/transaction", {
+    fetch(`${BACKEND_URL}/transaction`, {
         method: "POST",
         headers: {
         "Content-Type": "application/json",

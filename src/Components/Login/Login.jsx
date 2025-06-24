@@ -2,12 +2,13 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 export default function Login() {
+    const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
     const [email, setEmail] = useState("");    
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
   function handleOnSubmit(event) {
     event.preventDefault();
-    fetch("http://localhost:8080/authenticate", {
+    fetch(`${BACKEND_URL}/authenticate`, {
       method: "POST",
       body: JSON.stringify({
         "email": email,

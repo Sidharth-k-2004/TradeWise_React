@@ -2,12 +2,15 @@ import NavbarContent from "../NavbarContent";
 import Wishlist from "../Wishlist/Wishlist";
 import { useEffect,useState } from "react";
 export default function Display() {
+    const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+
+    console.log(BACKEND_URL);
     const [Equity, setEquity] = useState(0);
     const [Holdings, setHoldings] = useState(0);
     useEffect(() => {
     const userId = localStorage.getItem("userId");
-
-    fetch(`http://localhost:8080/equity?userId=${userId}`, {
+    
+    fetch(`${BACKEND_URL}/equity?userId=${userId}`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -28,7 +31,7 @@ export default function Display() {
             alert("Failed to fetch equity. Please try again later.");
         });
     
-    fetch(`http://localhost:8080/holdings/${userId}`, {
+    fetch(`${BACKEND_URL}/holdings/${userId}`, {
         method: "GET",  
         headers: {
             "Content-Type": "application/json",

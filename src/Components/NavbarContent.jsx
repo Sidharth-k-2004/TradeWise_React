@@ -11,7 +11,7 @@ export default function NavbarContent() {
 
   const handleLogout = () => {
     localStorage.removeItem("userId");
-    navigate("/"); // Redirect to login/home page
+    navigate("/"); 
   };
 
   return (

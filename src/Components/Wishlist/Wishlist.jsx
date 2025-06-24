@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { PieChart, Pie, Cell, Tooltip, Legend } from "recharts";
 
 export default function Wishlist({ onWishlistChange }) {
+  const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
   const [wishlistStocks, setWishlistStocks] = useState([]);
   const [searchData, setSearchData] = useState("");
   const [holdings, setHoldings] = useState([]); // ✅ owned holdings
@@ -15,11 +16,10 @@ export default function Wishlist({ onWishlistChange }) {
   const [refreshTrigger, setRefreshTrigger] = useState(false);
   const [wishlistChanged, setWishlistChanged] = useState(false);
 
-  // ✅ Fetch Wishlist
   useEffect(() => {
     const getWishlistedStocks = async () => {
       try {
-        const response = await fetch(`http://localhost:8080/wishlist/${userId}`, {
+        const response = await fetch(`${BACKEND_URL}/wishlist/${userId}`, {
           method: "GET",
           headers: { "Content-Type": "application/json" },
         });
@@ -38,7 +38,7 @@ export default function Wishlist({ onWishlistChange }) {
   useEffect(() => {
     const getHoldings = async () => {
       try {
-        const response = await fetch(`http://localhost:8080/holdings/${userId}`, {
+        const response = await fetch(`${BACKEND_URL}/holdings/${userId}`, {
           method: "GET",
           headers: { "Content-Type": "application/json" },
         });
@@ -80,7 +80,7 @@ export default function Wishlist({ onWishlistChange }) {
     if (event.key === "Enter") {
       const searchQuery = event.target.value.trim();
       if (searchQuery) {
-        fetch(`http://localhost:8080/stocks/${searchQuery}`, {
+        fetch(`${BACKEND_URL}/stocks/${searchQuery}`, {
           method: "GET",
           headers: { "Content-Type": "application/json" },
         })
@@ -104,7 +104,7 @@ export default function Wishlist({ onWishlistChange }) {
       quantity: parseInt(sellQuantity),
     };
 
-    fetch("http://localhost:8080/sellStock", {
+    fetch(`${BACKEND_URL}/sellStock`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),
@@ -137,7 +137,7 @@ export default function Wishlist({ onWishlistChange }) {
       ],
     };
 
-    fetch("http://localhost:8080/addToOwnedStock", {
+    fetch(`${BACKEND_URL}/addToOwnedStock`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),

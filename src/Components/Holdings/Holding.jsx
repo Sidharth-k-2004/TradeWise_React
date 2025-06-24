@@ -3,6 +3,7 @@ import NavbarContent from "../NavbarContent";
 import Wishlist from "../Wishlist/Wishlist";
 
 export default function Holding() {
+    const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
   const [holdings, setHoldings] = useState([]);
   const [loading, setLoading] = useState(true); // ✅ Loading state
   const [wishlistChanged, setWishlistChanged] = useState(false);
@@ -18,7 +19,7 @@ export default function Holding() {
       return;
     }
 
-    fetch(`http://localhost:8080/holdings/${userId}`, {
+    fetch(`${BACKEND_URL}/holdings/${userId}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -74,7 +75,7 @@ export default function Holding() {
                   </thead>
                   <tbody className="table-group-divider">
                     {holdings.map((holding) => (
-                      <tr key={holding.stockSymbol}>
+                      <tr key={`${holding.stock}-${holding.purchaseDate}`}>
                         <td>{holding.stock}</td>
                         <td>{holding.quantity}</td>
                         <td>{holding.buyPrice}</td>

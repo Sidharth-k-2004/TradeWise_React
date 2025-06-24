@@ -2,12 +2,13 @@ import NavbarContent from "../NavbarContent";
 import { useEffect } from "react";
 import { useState } from "react";
 export default function AllStocks(){
+    const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
     const [userId,setUserId]=useState();
     const [allStocks, setAllStocks] = useState([]);
      const [loading, setLoading] = useState(true); // 🔁 NEW
     const [selectedStocks, setSelectedStocks] = useState([]);
     useEffect(() => {
-    fetch("http://localhost:8080/getAllStocks", {
+    fetch(`${BACKEND_URL}/getAllStocks`, {
       method: "GET",
     })
       .then((response) => {
@@ -49,7 +50,7 @@ const addToWatchlist = () => {
 
   console.log("Sending to backend:", payload);
 
-  fetch("http://localhost:8080/addToWishlist", {
+  fetch(`${BACKEND_URL}/addToWishlist`, {
   method: "POST",
   headers: {
     "Content-Type": "application/json"
