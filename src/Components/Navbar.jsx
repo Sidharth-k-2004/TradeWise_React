@@ -11,7 +11,7 @@ export default function Navbar() {
             <a className="nav-link active text-muted" aria-current="page" onClick={() => navigate("/SignUp")} >Sign Up</a>
             </li>
             <li className="nav-item me-5 fs-4 ">
-            <a className="nav-link" href="#">KnowMore</a>
+            <a className="nav-link" onClick={()=> navigate("/knowmore")}>KnowMore</a>
             </li>
         </ul>
         </div>

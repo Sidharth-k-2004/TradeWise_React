@@ -7,6 +7,7 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 import Holding from './Components/Holdings/Holding';
 import FundSection from './Components/Funds/FundSection';
 import AllStocks from './Components/Watchlist/AllStocks';
+import KnowMore from './Components/KnowMe/KnowMore';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/holdings" element={<Holding/>} />
         <Route path="/funds" element={<FundSection/>} />
         <Route path="/wishlist" element={<AllStocks/>} />
+        <Route path="/knowmore" element={<KnowMore/>} />
       </Routes>
     </BrowserRouter>
   );
